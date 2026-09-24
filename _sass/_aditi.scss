@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Style overrides modelled on Aditi Raghunathan's homepage
+   (https://www.cs.cmu.edu/~aditirag/, designed by James Dolezal):
+   light font weights, active-tab underline, highlight cards, coloured
+   venue badges. Fonts and colors live in _aditi-variables.scss.
+   Imported last in assets/css/main.scss.
+   ========================================================================== */
+
+/* Typography weights */
+
+body {
+  font-weight: 300;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6,
+.archive__item-title {
+  font-weight: 400;
+}
+
+.page__title {
+  font-weight: 300;
+  font-size: 28px;
+}
+
+.sidebar .author__name {
+  font-weight: 400;
+
+  @include breakpoint($large) {
+    font-size: 30px;
+  }
+}
+
+/* No link underlines; hover is signalled by color, as on her page */
+a,
+.page__content a,
+.archive a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.archive__item:hover .archive__item-title {
+  text-decoration: none;
+}
+
+/* Top navigation */
+
+.greedy-nav {
+  a {
+    font-weight: 300;
+  }
+
+  .masthead__menu-item--lg a {
+    font-weight: 400;
+  }
+
+  .masthead__menu-item--active a {
+    text-decoration: underline;
+    text-decoration-color: $aditi-accent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 8px;
+  }
+}
+
+/* Highlight card: <div class="highlight-card"> ... </div> */
+
+.highlight-card {
+  display: block;
+  padding: 18px 20px;
+  border-left: 4px solid #0072c6;
+  background-color: #f0f4ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  margin: 18px 0;
+
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  a {
+    font-weight: 500;
+  }
+}
+
+/* Publication venue badges, keyed on the publication's `category` */
+
+.pub-tag {
+  display: inline-block;
+  min-width: 65px;
+  margin-right: 8px;
+  padding: 2px 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  vertical-align: middle;
+
+  &--conferences { background-color: #0233d1; }
+  &--manuscripts { background-color: #e6233d; }
+  &--books       { background-color: #ff8c00; }
+}
+
+.paper-award {
+  color: #D81159;
+  font-weight: 700;
+}

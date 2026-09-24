@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Variable overrides modelled on Aditi Raghunathan's homepage
+   (https://www.cs.cmu.edu/~aditirag/). Imported right after "variables"
+   in assets/css/main.scss so every theme partial picks them up.
+   ========================================================================== */
+
+$aditi-font                 : 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+$aditi-link                 : rgb(0, 71, 171);
+$aditi-link-hover           : rgb(0, 150, 255);
+$aditi-accent               : #ab425f;
+
+/* Fonts */
+$serif                      : $aditi-font;
+$sans-serif                 : $aditi-font;
+$sans-serif-narrow          : $aditi-font;
+$global-font-family         : $aditi-font;
+$header-font-family         : $aditi-font;
+$caption-font-family        : $aditi-font;
+
+/* Colors */
+$text-color                 : #000;
+$link-color                 : $aditi-link;
+$link-color-hover           : $aditi-link-hover;
+$link-color-visited         : $aditi-link;
+$masthead-link-color        : $aditi-link;
+$masthead-link-color-hover  : $aditi-link-hover;

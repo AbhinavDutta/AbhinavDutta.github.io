@@ -41,7 +41,13 @@
         {% if post.collection == 'teaching' %}
           <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif post.collection == 'publications' %}
-          <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+          {% case post.category %}
+            {% when 'conferences' %}{% assign pub_tag = 'Conference' %}
+            {% when 'manuscripts' %}{% assign pub_tag = 'Journal' %}
+            {% when 'books' %}{% assign pub_tag = 'Book' %}
+            {% else %}{% assign pub_tag = nil %}
+          {% endcase %}
+          <p>{% if pub_tag %}<span class="pub-tag pub-tag--{{ post.category }}">{{ pub_tag }}</span>{% endif %}Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}{% if post.award %} <span class="paper-award">{{ post.award }}</span>{% endif %} </p>
         {% elsif post.date %}
          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}
